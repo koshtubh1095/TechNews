@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="news.com.sample">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+        <application
+            android:name=".NewsApplication"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Material.Light">
+        <activity
+                android:name="news.com.sample.ui.MainActivity"
+                android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="news.com.sample.ui.DetailViewActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name="news.com.sample.ui.UserSavedActivity"
+            android:label="@string/app_name">
+        </activity>
+        <provider
+            android:name=".storage.NewsProvider"
+            android:authorities="news.com.technewssample.provider"
+            android:exported="true" />
+
+<!--            <receiver-->
+<!--                android:name=".receiver.AutoStartReceiver"-->
+<!--                android:enabled="true"-->
+<!--                android:exported="true">-->
+<!--                <intent-filter>-->
+<!--                    <action android:name="android.intent.action.BOOT_COMPLETED" />-->
+<!--                    <action android:name="android.intent.action.QUICKBOOT_POWERON" />-->
+<!--                </intent-filter>-->
+<!--            </receiver>-->
+
+<!--            <service-->
+<!--                android:name=".service.NewsFetchService"-->
+<!--                android:enabled="true"-->
+<!--                android:exported="true" />-->
+    </application>
+
+</manifest>

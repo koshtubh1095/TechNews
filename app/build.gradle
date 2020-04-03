@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "27.0.1"
+
+    defaultConfig {
+        applicationId "news.com.technewssample"
+        minSdkVersion 16
+        targetSdkVersion 28
+        vectorDrawables.useSupportLibrary = true
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+        versionCode 1
+        versionName "1.0.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "2048M"
+    }
+}
+
+dependencies {
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.facebook.fresco:fresco:0.10.0'
+
+    testCompile 'junit:junit:4.12'
+}
